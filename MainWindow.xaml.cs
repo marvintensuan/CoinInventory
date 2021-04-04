@@ -24,10 +24,10 @@ namespace CoinInventory
         {
             InitializeComponent();
 
-            List<clsPosition> positions = new();
+            List<Position> positions = new();
 
-            clsPosition pos1 = new(1, "BTC", 0.005, 5000, "Open");
-            clsPosition pos2 = new(2, "BCH", 0.05, 200, "Open");
+            Position pos1 = new(1, "BTC", 0.005, 5000, "Open");
+            Position pos2 = new(2, "BCH", 0.05, 200, "Open");
             positions.Add(pos1);
             positions.Add(pos2);
 

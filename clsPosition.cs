@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CoinInventory
 {
-    class clsPosition
+    class Position
     {
-        public clsPosition(int id, string ticker, double pos_amount, double hist_price, string status)
+        public Position(int id, string ticker, double pos_amount, double hist_price, string status)
         {
             Id = id;
             TickerName = ticker;
