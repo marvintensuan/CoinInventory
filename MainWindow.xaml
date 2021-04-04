@@ -1,11 +1,11 @@
-﻿<Window x:Class="CoinInventory.MainWindow"
+﻿<Window x:Class="CoinInventoryUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CoinInventory"
+        xmlns:local="clr-namespace:CoinInventoryUI" xmlns:src="clr-namespace:CoinInventoryUI"
         mc:Ignorable="d"
-        Title="Coin Inventory" Height="600" Width="480">
+        Title="Coin Inventory" Height="320" Width="480">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5" />
@@ -13,7 +13,7 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="5" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -28,7 +28,13 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" Grid.Row="1" Text="Bitcoin Open Positions" Grid.ColumnSpan="2" FontFamily="Verdana" FontSize="18"/>
-        <DataGrid Grid.Column="1" Grid.Row="2" Grid.RowSpan="6"
+        <StackPanel Grid.Column="1" Grid.Row="2"  Grid.ColumnSpan="2">
+            <StackPanel.Resources>
+                <src:Tickers x:Key="sampleTickers"/>
+            </StackPanel.Resources>
+            <ComboBox Name="ComboBoxTickers" ItemsSource="{StaticResource sampleTickers}"/>
+        </StackPanel>
+        <DataGrid Grid.Column="1" Grid.Row="3" Grid.RowSpan="6" Grid.ColumnSpan="4"
                   Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
